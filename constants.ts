@@ -1,12 +1,17 @@
-
 import { PlanetData, SectionType, InterstellarObjectData, ProjectData } from './types';
 
+// Access environment variables with a fallback
+const getEnv = (key: string, fallback: string) => {
+  // @ts-ignore - import.meta is available in Vite environments
+  return import.meta.env[key] || fallback;
+};
+
 export const RESUME_DATA = {
-  name: "Junaid Mirza",
-  role: "Frontend Developer | React & Next.js Specialist",
-  location: "Gilgit-Baltistan, Pakistan",
-  email: "0xdavid211@gmail.com",
-  linkedin: "linkedin.com/in/junaid-bro",
+  name: getEnv('VITE_APP_NAME', "Junaid Mirza"),
+  role: getEnv('VITE_APP_ROLE', "Frontend Developer | React & Next.js Specialist"),
+  location: getEnv('VITE_APP_LOCATION', "Gilgit-Baltistan, Pakistan"),
+  email: getEnv('VITE_APP_EMAIL', "0xdavid211@gmail.com"),
+  linkedin: getEnv('VITE_APP_LINKEDIN', "linkedin.com/in/junaid-bro"),
 };
 
 export const PLANETS: PlanetData[] = [
@@ -141,9 +146,9 @@ export const PLANETS: PlanetData[] = [
     content: {
       title: "Contact Information",
       items: [
-        "Email: 0xdavid211@gmail.com",
-        "LinkedIn: linkedin.com/in/junaid-bro",
-        "Location: Gilgit-Baltistan, Pakistan"
+        `Email: ${getEnv('VITE_APP_EMAIL', "0xdavid211@gmail.com")}`,
+        `LinkedIn: ${getEnv('VITE_APP_LINKEDIN', "linkedin.com/in/junaid-bro")}`,
+        `Location: ${getEnv('VITE_APP_LOCATION', "Gilgit-Baltistan, Pakistan")}`
       ],
       details: "Let's turn your vision into a high-performing solution. Send me a message, and let's start building."
     }
