@@ -1,0 +1,7 @@
+{
+  "name": "Cosmic Atlas - Junaid Mirza Portfolio",
+  "description": "A 3D interactive solar system portfolio for Junaid Mirza, featuring a futuristic interface and interstellar visual storytelling.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
